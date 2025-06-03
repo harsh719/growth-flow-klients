@@ -3,154 +3,143 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Target, TrendingUp, Users, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const About = () => {
-  const values = [
+  const stats = [
     {
-      icon: <TrendingUp className="h-8 w-8 text-purple-400" />,
-      title: "ROI-Focused",
-      description: "Every strategy and tactic is designed to deliver measurable return on investment"
+      number: "30+",
+      label: "Companies Scaled"
     },
     {
-      icon: <Users className="h-8 w-8 text-purple-400" />,
-      title: "Personalized",
-      description: "Custom approaches tailored to your industry, audience, and unique value proposition"
+      number: "2500+",
+      label: "Meetings Generated"
     },
     {
-      icon: <Target className="h-8 w-8 text-purple-400" />,
-      title: "Data-Driven",
-      description: "Decisions backed by analytics, testing, and continuous optimization"
+      number: "$3M+",
+      label: "Revenue Generated"
+    },
+    {
+      number: "100%",
+      label: "Guaranteed Success"
     }
   ];
 
-  const team = [
+  const teamMembers = [
     {
-      name: "Alex Rodriguez",
+      name: "Harsh Shah",
       role: "Founder & CEO",
-      description: "10+ years in B2B sales, former VP at two successful SaaS exits"
+      initials: "HS",
+      description: "3+ years of experience in B2B Outbound and SEO. Scaled 30+ companies using outbound and SEO."
     },
     {
-      name: "Sarah Mitchell", 
-      role: "Head of Strategy",
-      description: "Expert in outbound systems, scaled 50+ companies to 7-figure revenue"
-    },
-    {
-      name: "David Chen",
-      role: "Lead Developer",
-      description: "Automation specialist, built systems processing 10M+ outreach messages"
+      name: "Twinkal Shah",
+      role: "CTO",
+      initials: "TS",
+      description: "2+ years of experience building tech infrastructure for outbound and inbound strategies, including success-enabling tools."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-blue-600 to-white text-white">
       {/* Hero Section */}
-      <section className="gradient-bg py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About <span className="text-yellow-300">KlientsGrowth</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              About KlientsGrowth
             </h1>
-            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-              We're B2B strategists who believe every company deserves predictable, 
-              automated sales results. No more guessing, no more inconsistency.
+            <p className="text-xl md:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
+              We're a team of B2B growth experts dedicated to building hands-off systems that consistently deliver qualified meetings and revenue growth for ambitious companies.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-20 bg-gray-800">
+      {/* Our Mission */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-300 mb-6">
-                Too many B2B companies struggle with inconsistent lead generation and unpredictable 
-                sales results. They waste time and money on tactics that don't work, while their 
-                competitors pull ahead.
+              <p className="text-lg text-white mb-6 leading-relaxed">
+                We believe every B2B company deserves predictable, scalable growth without the headaches of managing complex outbound systems. That's why we build, manage, and optimize complete growth infrastructures that work while you focus on what you do best.
               </p>
-              <p className="text-lg text-gray-300 mb-6">
-                We founded KlientsGrowth to solve this problem. Our mission is to deliver 
-                predictable, automated results through proven outbound systems that actually work.
-              </p>
-              <p className="text-lg text-gray-300">
-                Every client gets our guarantee: 32 qualified meetings in 60 days, or we work 
-                for free until they do. It's that simple.
+              <p className="text-lg text-white leading-relaxed">
+                Our systematic approach has helped companies across IT, cybersecurity, SaaS, and recruitment generate millions in pipeline value through consistent, qualified meetings.
               </p>
             </div>
-            
-            <div className="bg-gray-700 p-8 rounded-lg border border-gray-600">
-              <h3 className="text-2xl font-bold text-white mb-6">Why We Started KlientsGrowth</h3>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
-                  <p className="text-gray-300">Frustrated by agencies that promise but don't deliver</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
-                  <p className="text-gray-300">Tired of seeing good companies fail due to poor sales systems</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
-                  <p className="text-gray-300">Passionate about building predictable growth engines</p>
-                </div>
+            <div className="text-center">
+              <div className="text-6xl md:text-8xl font-bold text-white mb-4">
+                32
               </div>
+              <p className="text-xl text-white">
+                Qualified meetings guaranteed in 60 days
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 bg-gray-900">
+      {/* Our Track Record */}
+      <section className="py-20 bg-gradient-to-b from-blue-800 to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Values
+              Our Track Record
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              The principles that guide everything we do
+            <p className="text-xl text-white max-w-2xl mx-auto">
+              Results that speak for themselves
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow bg-gray-800 border-gray-700">
-                <CardContent className="p-8">
-                  <div className="flex justify-center mb-4">{value.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-3">{value.title}</h3>
-                  <p className="text-gray-300">{value.description}</p>
-                </CardContent>
-              </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl md:text-6xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-lg text-white">
+                  {stat.label}
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-gray-800">
+      {/* Meet Our Team */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Meet Our Team
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              B2B strategists with a proven track record of delivering results
+            <p className="text-xl text-white max-w-2xl mx-auto">
+              The experts behind your growth system
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <Card key={index} className="text-center bg-gray-700 border-gray-600">
-                <CardContent className="p-8">
-                  <div className="w-20 h-20 gradient-bg rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-white">{member.name.split(' ').map(n => n[0]).join('')}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <Card key={index} className="bg-slate-800 border-slate-700 shadow-xl rounded-xl">
+                <CardContent className="p-8 text-center">
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-white flex items-center justify-center border-4 border-gradient-to-r from-blue-500 to-white">
+                    <span className="text-xl font-bold text-blue-900">
+                      {member.initials}
+                    </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{member.name}</h3>
-                  <p className="text-purple-400 font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-300">{member.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {member.name}
+                  </h3>
+                  <p className="text-blue-300 font-semibold mb-4">
+                    {member.role}
+                  </p>
+                  <p className="text-white leading-relaxed">
+                    {member.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -158,50 +147,66 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 gradient-bg">
+      {/* Our Approach */}
+      <section className="py-20 bg-gradient-to-b from-blue-700 to-blue-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Track Record
+              Our Approach
             </h2>
+            <p className="text-xl text-white max-w-2xl mx-auto">
+              Why our systematic method delivers consistent results
+            </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">50+</div>
-              <p className="text-gray-200">Companies Scaled</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-4">01</div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Industry Specialization
+              </h3>
+              <p className="text-white">
+                We focus on specific B2B niches, allowing us to create highly targeted campaigns that resonate with your ideal prospects.
+              </p>
             </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">1500+</div>
-              <p className="text-gray-200">Meetings Generated</p>
+            
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-4">02</div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Proven Systems
+              </h3>
+              <p className="text-white">
+                Our methodologies are battle-tested across hundreds of campaigns, ensuring your growth system is built on what actually works.
+              </p>
             </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">$5M+</div>
-              <p className="text-gray-200">Revenue Attributed</p>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">100%</div>
-              <p className="text-gray-200">Guarantee Success</p>
+            
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-4">03</div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Guaranteed Results
+              </h3>
+              <p className="text-white">
+                We're so confident in our approach that we guarantee 32 qualified meetings in 60 days, or we work for free until we deliver.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Work With Us?
+            Ready to Scale Your Business?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can build your predictable growth system
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
+            Let's discuss how we can build your hands-off growth system and deliver guaranteed results
           </p>
-          <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100 text-lg px-8 py-3">
-            <Link to="/contact">
-              Schedule Your Strategy Call
+          <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-white text-white hover:from-white hover:to-blue-500 hover:text-blue-900 transition-all duration-300 text-lg px-8 py-4">
+            <a href="https://cal.com/harsh719/klientsgrowth" target="_blank" rel="noopener noreferrer">
+              Book Free Strategy Call
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+            </a>
           </Button>
         </div>
       </section>

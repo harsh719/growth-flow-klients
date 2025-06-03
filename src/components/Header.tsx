@@ -38,8 +38,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-yellow-300 ${
-                  isActive(item.href) ? 'text-yellow-300' : 'text-gray-300'
+                className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-sky-400 ${
+                  isActive(item.href) ? 'text-yellow-300' : 'text-white'
                 }`}
               >
                 {item.name}
@@ -49,7 +49,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button asChild className="gradient-bg hover:opacity-90 text-white border-0">
+            <Button asChild className="bg-gradient-to-r from-blue-500 to-white text-white hover:from-white hover:to-blue-500 hover:text-blue-900 transition-all duration-300 border-0">
               <a href="https://cal.com/harsh719/klientsgrowth" target="_blank" rel="noopener noreferrer">
                 Book Free Strategy Call
               </a>
@@ -60,7 +60,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-yellow-300"
+              className="text-white hover:text-sky-400 transition-colors duration-300 ease-in-out"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -75,15 +75,15 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-yellow-300 ${
-                    isActive(item.href) ? 'text-yellow-300' : 'text-gray-300'
+                  className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-sky-400 ${
+                    isActive(item.href) ? 'text-yellow-300' : 'text-white'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button asChild className="gradient-bg hover:opacity-90 text-white border-0 w-full mt-4">
+              <Button asChild className="bg-gradient-to-r from-blue-500 to-white text-white hover:from-white hover:to-blue-500 hover:text-blue-900 transition-all duration-300 border-0 w-full mt-4">
                 <a 
                   href="https://cal.com/harsh719/klientsgrowth" 
                   target="_blank" 
