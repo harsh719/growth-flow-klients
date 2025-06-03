@@ -98,22 +98,22 @@ const Index = () => {
             <h2 className="text-2xl font-semibold text-gray-300 mb-8">We generated our clients:</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-gray-800 border-gray-700 text-center">
+            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-[#49de80]">
               <CardContent className="p-8">
-                <div className="text-4xl font-bold text-green-400 mb-2">+$1,111,288</div>
-                <div className="text-gray-300">New revenue</div>
+                <div className="text-4xl font-bold text-green-400 mb-2">+$3M</div>
+                <div className="text-gray-300">Revenue generated</div>
               </CardContent>
             </Card>
-            <Card className="bg-gray-800 border-gray-700 text-center">
+            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-[#49de80]">
               <CardContent className="p-8">
-                <div className="text-4xl font-bold text-blue-400 mb-2">+2,028</div>
+                <div className="text-4xl font-bold text-blue-400 mb-2">+2,500</div>
                 <div className="text-gray-300">Sales meetings</div>
               </CardContent>
             </Card>
-            <Card className="bg-gray-800 border-gray-700 text-center">
+            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-[#49de80]">
               <CardContent className="p-8">
-                <div className="text-4xl font-bold text-purple-400 mb-2">+$10,280,288</div>
-                <div className="text-gray-300">Sales pipelines</div>
+                <div className="text-4xl font-bold text-purple-400 mb-2">+$7M</div>
+                <div className="text-gray-300">Sales Pipeline</div>
               </CardContent>
             </Card>
           </div>
