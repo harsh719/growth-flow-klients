@@ -74,7 +74,7 @@ const Index = () => {
               for B2B leaders
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              We've helped our clients unlock over <span className="text-purple-400 font-semibold">$10,000,000</span> in potential deals, 
+              We've helped our clients unlock over <span className="text-purple-400 font-semibold">$7M+</span> in potential deals, 
               freeing them from the hassle of referrals, expensive SDRs, amateur agencies, and worries about the declining economy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -213,7 +213,7 @@ const Index = () => {
           </p>
           <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
             <a href="https://cal.com/harsh719/klientsgrowth" target="_blank" rel="noopener noreferrer">
-              Book Free Strategy Call
+              Book More Meetings
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>
