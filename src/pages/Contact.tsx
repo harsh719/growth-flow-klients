@@ -46,104 +46,104 @@ const Contact = () => {
 
   const benefits = [
     {
-      icon: <Target className="h-6 w-6 text-blue-600" />,
+      icon: <Target className="h-6 w-6 text-purple-400" />,
       title: "Custom Strategy",
       description: "Tailored outbound plan for your specific industry and goals"
     },
     {
-      icon: <Users className="h-6 w-6 text-blue-600" />,
+      icon: <Users className="h-6 w-6 text-purple-400" />,
       title: "Expert Consultation",
       description: "60-minute session with our senior B2B strategists"
     },
     {
-      icon: <Calendar className="h-6 w-6 text-blue-600" />,
+      icon: <Calendar className="h-6 w-6 text-purple-400" />,
       title: "Action Plan",
-      description: "Clear roadmap to achieve your first 30 meetings"
+      description: "Clear roadmap to achieve your first 32 meetings"
     }
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <section className="gradient-bg py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Let's Talk <span className="text-blue-600">Growth</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Let's Talk <span className="text-yellow-300">Growth</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
               Book a free strategy call and discover exactly how we can help you get 
-              30 qualified sales meetings in the next 60 days.
+              32 qualified sales meetings in the next 60 days.
             </p>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             {/* Form */}
-            <Card className="shadow-xl">
-              <CardHeader className="bg-blue-600 text-white">
+            <Card className="shadow-xl bg-gray-700 border-gray-600">
+              <CardHeader className="gradient-bg text-white">
                 <CardTitle className="text-2xl">Book Your Free Strategy Call</CardTitle>
               </CardHeader>
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="firstName">First Name *</Label>
+                      <Label htmlFor="firstName" className="text-white">First Name *</Label>
                       <Input
                         id="firstName"
                         type="text"
                         value={formData.firstName}
                         onChange={(e) => handleChange('firstName', e.target.value)}
                         required
-                        className="mt-1"
+                        className="mt-1 bg-gray-600 border-gray-500 text-white"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="lastName">Last Name *</Label>
+                      <Label htmlFor="lastName" className="text-white">Last Name *</Label>
                       <Input
                         id="lastName"
                         type="text"
                         value={formData.lastName}
                         onChange={(e) => handleChange('lastName', e.target.value)}
                         required
-                        className="mt-1"
+                        className="mt-1 bg-gray-600 border-gray-500 text-white"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="email">Business Email *</Label>
+                    <Label htmlFor="email" className="text-white">Business Email *</Label>
                     <Input
                       id="email"
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleChange('email', e.target.value)}
                       required
-                      className="mt-1"
+                      className="mt-1 bg-gray-600 border-gray-500 text-white"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="company">Company Name *</Label>
+                    <Label htmlFor="company" className="text-white">Company Name *</Label>
                     <Input
                       id="company"
                       type="text"
                       value={formData.company}
                       onChange={(e) => handleChange('company', e.target.value)}
                       required
-                      className="mt-1"
+                      className="mt-1 bg-gray-600 border-gray-500 text-white"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="industry">Industry *</Label>
+                    <Label htmlFor="industry" className="text-white">Industry *</Label>
                     <Select onValueChange={(value) => handleChange('industry', value)}>
-                      <SelectTrigger className="mt-1">
+                      <SelectTrigger className="mt-1 bg-gray-600 border-gray-500 text-white">
                         <SelectValue placeholder="Select your industry" />
                       </SelectTrigger>
                       <SelectContent>
@@ -156,9 +156,9 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="revenue">Annual Revenue</Label>
+                    <Label htmlFor="revenue" className="text-white">Annual Revenue</Label>
                     <Select onValueChange={(value) => handleChange('revenue', value)}>
-                      <SelectTrigger className="mt-1">
+                      <SelectTrigger className="mt-1 bg-gray-600 border-gray-500 text-white">
                         <SelectValue placeholder="Select revenue range" />
                       </SelectTrigger>
                       <SelectContent>
@@ -171,18 +171,18 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="challenge">Biggest Sales Challenge</Label>
+                    <Label htmlFor="challenge" className="text-white">Biggest Sales Challenge</Label>
                     <Textarea
                       id="challenge"
                       value={formData.challenge}
                       onChange={(e) => handleChange('challenge', e.target.value)}
                       placeholder="Tell us about your current sales challenges..."
-                      className="mt-1"
+                      className="mt-1 bg-gray-600 border-gray-500 text-white"
                       rows={4}
                     />
                   </div>
 
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-3">
+                  <Button type="submit" className="w-full bg-white text-gray-900 hover:bg-gray-100 text-lg py-3">
                     Book My Free Strategy Call
                   </Button>
                 </form>
@@ -192,7 +192,7 @@ const Contact = () => {
             {/* Benefits */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-white mb-6">
                   What You'll Get on This Call
                 </h2>
                 <div className="space-y-6">
@@ -200,41 +200,41 @@ const Contact = () => {
                     <div key={index} className="flex items-start space-x-4">
                       <div className="flex-shrink-0">{benefit.icon}</div>
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                        <p className="text-gray-600">{benefit.description}</p>
+                        <h3 className="text-lg font-semibold text-white mb-2">{benefit.title}</h3>
+                        <p className="text-gray-300">{benefit.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <Card className="bg-green-50 border-green-200">
+              <Card className="bg-green-900 border-green-700">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <CheckCircle className="h-6 w-6 text-green-600" />
-                    <h3 className="text-lg font-semibold text-gray-900">100% Free Consultation</h3>
+                    <CheckCircle className="h-6 w-6 text-green-400" />
+                    <h3 className="text-lg font-semibold text-white">100% Free Consultation</h3>
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     No sales pitch, no obligation. Just valuable insights about how to scale 
                     your outbound sales system.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-blue-50 border-blue-200">
+              <Card className="bg-gray-700 border-gray-600">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Perfect for:</h3>
-                  <ul className="space-y-2 text-gray-600">
+                  <h3 className="text-lg font-semibold text-white mb-3">Perfect for:</h3>
+                  <ul className="space-y-2 text-gray-300">
                     <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600" />
+                      <CheckCircle className="h-4 w-4 text-purple-400" />
                       <span>B2B companies doing $1M+ in revenue</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600" />
+                      <CheckCircle className="h-4 w-4 text-purple-400" />
                       <span>Teams struggling with inconsistent lead generation</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600" />
+                      <CheckCircle className="h-4 w-4 text-purple-400" />
                       <span>Companies ready to invest in predictable growth</span>
                     </li>
                   </ul>
@@ -246,43 +246,43 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">
             Frequently Asked Questions
           </h2>
           
           <div className="space-y-8">
-            <Card>
+            <Card className="bg-gray-800 border-gray-700">
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   How quickly can we get started?
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   We can begin building your outbound system within 1-2 weeks of our strategy call, 
                   depending on your specific requirements.
                 </p>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="bg-gray-800 border-gray-700">
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  What if we don't get 30 meetings?
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  What if we don't get 32 meetings?
                 </h3>
-                <p className="text-gray-600">
-                  That's our guarantee - if we don't deliver 30 qualified meetings in your first 
+                <p className="text-gray-300">
+                  That's our guarantee - if we don't deliver 32 qualified meetings in your first 
                   60 days, we'll continue working for free until we do.
                 </p>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="bg-gray-800 border-gray-700">
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   Do you work with companies outside your core niches?
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   While we specialize in cybersecurity, IT support, and recruitment, we do work 
                   with other B2B companies on a case-by-case basis.
                 </p>

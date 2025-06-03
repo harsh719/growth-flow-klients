@@ -19,7 +19,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50">
+    <header className="bg-gray-800/95 backdrop-blur-sm border-b border-gray-700 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -38,8 +38,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-purple-400 ${
-                  isActive(item.href) ? 'text-purple-400' : 'text-gray-300'
+                className={`text-sm font-medium transition-colors hover:text-yellow-300 ${
+                  isActive(item.href) ? 'text-yellow-300' : 'text-gray-300'
                 }`}
               >
                 {item.name}
@@ -60,7 +60,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-purple-400"
+              className="text-gray-300 hover:text-yellow-300"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -69,14 +69,14 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
+          <div className="md:hidden py-4 border-t border-gray-700">
             <nav className="flex flex-col space-y-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-purple-400 ${
-                    isActive(item.href) ? 'text-purple-400' : 'text-gray-300'
+                  className={`text-sm font-medium transition-colors hover:text-yellow-300 ${
+                    isActive(item.href) ? 'text-yellow-300' : 'text-gray-300'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
