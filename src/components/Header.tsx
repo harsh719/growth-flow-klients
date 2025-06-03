@@ -19,15 +19,17 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <header className="bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">KG</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">KlientsGrowth</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/1ecb80d7-2cf9-46fd-bad8-823ef5bb11e5.png" 
+              alt="KlientsGrowth Logo" 
+              className="w-10 h-10"
+            />
+            <span className="text-xl font-bold text-white">KlientsGrowth</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -36,8 +38,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  isActive(item.href) ? 'text-blue-600' : 'text-gray-700'
+                className={`text-sm font-medium transition-colors hover:text-purple-400 ${
+                  isActive(item.href) ? 'text-purple-400' : 'text-gray-300'
                 }`}
               >
                 {item.name}
@@ -47,8 +49,10 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link to="/contact">Book Free Strategy Call</Link>
+            <Button asChild className="gradient-bg hover:opacity-90 text-white border-0">
+              <a href="https://cal.com/harsh719/klientsgrowth" target="_blank" rel="noopener noreferrer">
+                Book Free Strategy Call
+              </a>
             </Button>
           </div>
 
@@ -56,7 +60,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-600"
+              className="text-gray-300 hover:text-purple-400"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -65,24 +69,29 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
+          <div className="md:hidden py-4 border-t border-gray-800">
             <nav className="flex flex-col space-y-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    isActive(item.href) ? 'text-blue-600' : 'text-gray-700'
+                  className={`text-sm font-medium transition-colors hover:text-purple-400 ${
+                    isActive(item.href) ? 'text-purple-400' : 'text-gray-300'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full mt-4">
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+              <Button asChild className="gradient-bg hover:opacity-90 text-white border-0 w-full mt-4">
+                <a 
+                  href="https://cal.com/harsh719/klientsgrowth" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Book Free Strategy Call
-                </Link>
+                </a>
               </Button>
             </nav>
           </div>
