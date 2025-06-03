@@ -41,7 +41,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-600 to-white text-white">
+    <div className="min-h-screen text-white">
       {/* Hero Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +84,7 @@ const About = () => {
       </section>
 
       {/* Our Track Record */}
-      <section className="py-20 bg-gradient-to-b from-blue-800 to-blue-600">
+      <section className="py-20 bg-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -124,9 +124,9 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-slate-800 border-slate-700 shadow-xl rounded-xl">
+              <Card key={index} className="team-card">
                 <CardContent className="p-8 text-center">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-white flex items-center justify-center border-4 border-gradient-to-r from-blue-500 to-white">
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full team-initials flex items-center justify-center">
                     <span className="text-xl font-bold text-blue-900">
                       {member.initials}
                     </span>
@@ -148,7 +148,7 @@ const About = () => {
       </section>
 
       {/* Our Approach */}
-      <section className="py-20 bg-gradient-to-b from-blue-700 to-blue-500">
+      <section className="py-20 bg-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -202,7 +202,7 @@ const About = () => {
           <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Let's discuss how we can build your hands-off growth system and deliver guaranteed results
           </p>
-          <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-white text-white hover:from-white hover:to-blue-500 hover:text-blue-900 transition-all duration-300 text-lg px-8 py-4">
+          <Button asChild size="lg" className="cta-button text-white hover:text-blue-900 text-lg px-8 py-4">
             <a href="https://cal.com/harsh719/klientsgrowth" target="_blank" rel="noopener noreferrer">
               Book Free Strategy Call
               <ArrowRight className="ml-2 h-5 w-5" />

@@ -19,7 +19,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-gray-800/95 backdrop-blur-sm border-b border-gray-700 sticky top-0 z-50">
+    <header className="bg-black/20 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -38,7 +38,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-sky-400 ${
+                className={`text-sm font-medium nav-link ${
                   isActive(item.href) ? 'text-yellow-300' : 'text-white'
                 }`}
               >
@@ -49,7 +49,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button asChild className="bg-gradient-to-r from-blue-500 to-white text-white hover:from-white hover:to-blue-500 hover:text-blue-900 transition-all duration-300 border-0">
+            <Button asChild className="cta-button text-white hover:text-blue-900 border-0">
               <a href="https://cal.com/harsh719/klientsgrowth" target="_blank" rel="noopener noreferrer">
                 Book Free Strategy Call
               </a>
@@ -60,7 +60,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-sky-400 transition-colors duration-300 ease-in-out"
+              className="text-white nav-link"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -69,13 +69,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-700">
+          <div className="md:hidden py-4 border-t border-white/10">
             <nav className="flex flex-col space-y-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors duration-300 ease-in-out hover:text-sky-400 ${
+                  className={`text-sm font-medium nav-link ${
                     isActive(item.href) ? 'text-yellow-300' : 'text-white'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
@@ -83,7 +83,7 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button asChild className="bg-gradient-to-r from-blue-500 to-white text-white hover:from-white hover:to-blue-500 hover:text-blue-900 transition-all duration-300 border-0 w-full mt-4">
+              <Button asChild className="cta-button text-white hover:text-blue-900 border-0 w-full mt-4">
                 <a 
                   href="https://cal.com/harsh719/klientsgrowth" 
                   target="_blank" 
