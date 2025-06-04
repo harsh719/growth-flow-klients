@@ -69,8 +69,8 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-main': 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)',
-				'gradient-secondary': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-				'gradient-accent': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+				'gradient-secondary': 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)',
+				'gradient-accent': 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
