@@ -76,24 +76,23 @@
   background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%);
 }
 
-/* Replace any potential instances of rgb(192 132 252) with gradient */
-*[style*="rgb(192 132 252)"],
-*[style*="rgb(192, 132, 252)"],
-*[style*="#c084fc"],
-.bg-purple-400,
+/* Apply gradient to text and icons with purple color only */
 .text-purple-400,
-.border-purple-400 {
+span.text-purple-400,
+p.text-purple-400 {
   background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
-/* Ensure text contrast for gradient backgrounds */
-.gradient-bg,
-.gradient-secondary-bg,
-.gradient-accent-bg,
-*[style*="rgb(192 132 252)"],
-*[style*="rgb(192, 132, 252)"],
-*[style*="#c084fc"] {
-  color: white;
+/* Apply gradient to Lucide icons with purple color */
+svg.text-purple-400,
+.text-purple-400 svg {
+  background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Hover states for gradient elements */
