@@ -33,7 +33,7 @@ const WeekBlock: React.FC<WeekBlockProps> = ({
         transition={{ duration: 0.6, delay }}
         className="relative"
       >
-        <Card className={`bg-gray-800/80 border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
+        <Card className={`bg-gray-800/80 border-gray-700 hover:border-gradient transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
           milestone ? 'border-purple-500/30 shadow-purple-500/20 shadow-lg' : ''
         }`}>
           <CardContent className="p-6 text-center">

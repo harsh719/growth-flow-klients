@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -149,19 +150,19 @@ const Index = () => {
             <h2 className="text-2xl font-semibold text-gray-300 mb-8">We generated our clients:</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-[#49de80]">
+            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-gradient">
               <CardContent className="p-8">
                 <div className="text-4xl font-bold text-green-400 mb-2">+$3M</div>
                 <div className="text-gray-300">Revenue generated</div>
               </CardContent>
             </Card>
-            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-[#49de80]">
+            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-gradient">
               <CardContent className="p-8">
                 <div className="text-4xl font-bold text-blue-400 mb-2">+2,500</div>
                 <div className="text-gray-300">Sales meetings</div>
               </CardContent>
             </Card>
-            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-[#49de80]">
+            <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-gradient">
               <CardContent className="p-8">
                 <div className="text-4xl font-bold text-purple-400 mb-2">+$7M</div>
                 <div className="text-gray-300">Sales Pipeline</div>
@@ -171,7 +172,47 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Growth Journey Section */}
+      {/* New Way to Scale Section */}
+      <section className="py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              The new way to scale.
+            </h2>
+          </div>
+          
+          <div className="space-y-8 text-lg text-gray-300 leading-relaxed">
+            <p>
+              Cold email has a frustrating tradeoff: either <span className="text-white font-semibold">you sacrifice quality for volume</span> (
+              spray and pray ), or you spend way too much money for people to sit around 
+              and write one or two great emails a day. Our Approach is different. Every email 
+              we send is timely and relevant, and <span className="text-white font-semibold">we can do it at infinite scale. We win you 
+              millions in pipeline.</span>
+            </p>
+            
+            <p>
+              <span className="text-white font-semibold">Scaling personalized cold outbound is also easy to do wrong</span>—which has 
+              consequences for both your brand (making you look bad) and your business 
+              (losing you money). When you work with us, you're in good hands.
+            </p>
+            
+            <p>
+              We've sent millions of emails, <span className="text-white font-semibold">generated nearly $10M in pipeline</span>, and are 
+              neurotically obsessed with getting the little details right so everything goes 
+              smoothly.
+            </p>
+            
+            <div className="mt-12 pt-8">
+              <div className="text-2xl font-script mb-4">
+                <span className="font-serif italic">Harsh Shah</span>
+              </div>
+              <p className="text-gray-400">Harsh Shah, Founder and Traveller</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Growth Journey Section - Moved here after "The new way to scale" */}
       <GrowthJourney />
 
       {/* Comparison Section */}
@@ -255,7 +296,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {processes.map((process, index) => (
-              <Card key={index} className="bg-gray-800 border-gray-700 hover:border-purple-500 transition-colors">
+              <Card key={index} className="bg-gray-800 border-gray-700 hover:border-gradient transition-colors">
                 <CardContent className="p-8 text-center">
                   <div className="text-5xl font-bold gradient-text mb-4">{process.step}</div>
                   <h3 className="text-xl font-semibold mb-3">{process.title}</h3>
@@ -263,46 +304,6 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* New Way to Scale Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              The new way to scale.
-            </h2>
-          </div>
-          
-          <div className="space-y-8 text-lg text-gray-300 leading-relaxed">
-            <p>
-              Cold email has a frustrating tradeoff: either <span className="text-white font-semibold">you sacrifice quality for volume</span> (
-              spray and pray ), or you spend way too much money for people to sit around 
-              and write one or two great emails a day. Our Approach is different. Every email 
-              we send is timely and relevant, and <span className="text-white font-semibold">we can do it at infinite scale. We win you 
-              millions in pipeline.</span>
-            </p>
-            
-            <p>
-              <span className="text-white font-semibold">Scaling personalized cold outbound is also easy to do wrong</span>—which has 
-              consequences for both your brand (making you look bad) and your business 
-              (losing you money). When you work with us, you're in good hands.
-            </p>
-            
-            <p>
-              We've sent millions of emails, <span className="text-white font-semibold">generated nearly $10M in pipeline</span>, and are 
-              neurotically obsessed with getting the little details right so everything goes 
-              smoothly.
-            </p>
-            
-            <div className="mt-12 pt-8">
-              <div className="text-2xl font-script mb-4">
-                <span className="font-serif italic">Harsh Shah</span>
-              </div>
-              <p className="text-gray-400">Harsh Shah, Founder and Traveller</p>
-            </div>
           </div>
         </div>
       </section>
@@ -321,7 +322,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {niches.map((niche, index) => (
-              <Card key={index} className="bg-gray-800 border-gray-700 text-center hover:border-purple-500 transition-colors">
+              <Card key={index} className="bg-gray-800 border-gray-700 text-center hover:border-gradient transition-colors">
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">{niche.icon}</div>
                   <h3 className="text-lg font-semibold mb-3">{niche.title}</h3>
@@ -347,7 +348,7 @@ const Index = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-gray-800 border-gray-700 rounded-lg px-6"
+                className="bg-gray-800 border-gray-700 rounded-lg px-6 hover:border-gradient"
               >
                 <AccordionTrigger className="text-left text-lg font-medium hover:text-purple-400">
                   {faq.question}
@@ -372,7 +373,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-gray-800 border-l-4 border-l-purple-500 border-gray-700">
+              <Card key={index} className="bg-gray-800 border-l-4 border-l-purple-500 border-gray-700 hover:border-gradient">
                 <CardContent className="p-8">
                   <p className="text-lg text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
                   <div className="flex justify-between items-end">

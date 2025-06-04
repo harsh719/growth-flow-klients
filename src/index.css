@@ -112,3 +112,33 @@ svg.text-purple-400,
   opacity: 0.9;
   transition: opacity 0.2s ease;
 }
+
+/* Gradient border hover effect for all cards */
+.hover\:border-gradient {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.hover\:border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, #0EA5E9, #6366F1, #8B5CF6);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hover\:border-gradient:hover::before {
+  opacity: 1;
+}
+
+/* Apply gradient border to all card components */
+[class*="border-gray-700"],
+[class*="border-gray-600"] {
+  @apply hover:border-gradient;
+}
