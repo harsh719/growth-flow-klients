@@ -38,28 +38,9 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors ${
-                  isActive(item.href) 
-                    ? 'gradient-text' 
-                    : 'text-gray-700 hover:gradient-text'
+                className={`text-sm font-medium transition-colors hover:text-purple-600 ${
+                  isActive(item.href) ? 'text-purple-600' : 'text-gray-700'
                 }`}
-                style={isActive(item.href) ? {} : {}}
-                onMouseEnter={(e) => {
-                  if (!isActive(item.href)) {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                    e.currentTarget.style.webkitBackgroundClip = 'text';
-                    e.currentTarget.style.webkitTextFillColor = 'transparent';
-                    e.currentTarget.style.backgroundClip = 'text';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive(item.href)) {
-                    e.currentTarget.style.background = '';
-                    e.currentTarget.style.webkitBackgroundClip = '';
-                    e.currentTarget.style.webkitTextFillColor = '';
-                    e.currentTarget.style.backgroundClip = '';
-                  }
-                }}
               >
                 {item.name}
               </Link>
@@ -79,23 +60,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700"
-              style={{
-                color: '#374151'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                e.currentTarget.style.webkitBackgroundClip = 'text';
-                e.currentTarget.style.webkitTextFillColor = 'transparent';
-                e.currentTarget.style.backgroundClip = 'text';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '';
-                e.currentTarget.style.webkitBackgroundClip = '';
-                e.currentTarget.style.webkitTextFillColor = '';
-                e.currentTarget.style.backgroundClip = '';
-                e.currentTarget.style.color = '#374151';
-              }}
+              className="text-gray-700 hover:text-purple-600"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -110,26 +75,10 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive(item.href) ? 'gradient-text' : 'text-gray-700'
+                  className={`text-sm font-medium transition-colors hover:text-purple-600 ${
+                    isActive(item.href) ? 'text-purple-600' : 'text-gray-700'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
-                  onMouseEnter={(e) => {
-                    if (!isActive(item.href)) {
-                      e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                      e.currentTarget.style.webkitBackgroundClip = 'text';
-                      e.currentTarget.style.webkitTextFillColor = 'transparent';
-                      e.currentTarget.style.backgroundClip = 'text';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive(item.href)) {
-                      e.currentTarget.style.background = '';
-                      e.currentTarget.style.webkitBackgroundClip = '';
-                      e.currentTarget.style.webkitTextFillColor = '';
-                      e.currentTarget.style.backgroundClip = '';
-                    }
-                  }}
                 >
                   {item.name}
                 </Link>

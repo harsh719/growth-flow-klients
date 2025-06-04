@@ -26,20 +26,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/klients-growth/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 transition-colors"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                  e.currentTarget.style.webkitBackgroundClip = 'text';
-                  e.currentTarget.style.webkitTextFillColor = 'transparent';
-                  e.currentTarget.style.backgroundClip = 'text';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = '';
-                  e.currentTarget.style.webkitBackgroundClip = '';
-                  e.currentTarget.style.webkitTextFillColor = '';
-                  e.currentTarget.style.backgroundClip = '';
-                  e.currentTarget.style.color = '#9CA3AF';
-                }}
+                className="text-gray-400 hover:text-purple-400 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -47,20 +34,7 @@ const Footer = () => {
                 href="https://x.com/HeartbeaTechno" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 transition-colors"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                  e.currentTarget.style.webkitBackgroundClip = 'text';
-                  e.currentTarget.style.webkitTextFillColor = 'transparent';
-                  e.currentTarget.style.backgroundClip = 'text';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = '';
-                  e.currentTarget.style.webkitBackgroundClip = '';
-                  e.currentTarget.style.webkitTextFillColor = '';
-                  e.currentTarget.style.backgroundClip = '';
-                  e.currentTarget.style.color = '#9CA3AF';
-                }}
+                className="text-gray-400 hover:text-purple-400 transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
@@ -72,86 +46,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link 
-                  to="/services" 
-                  className="text-gray-300 transition-colors"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                    e.currentTarget.style.webkitBackgroundClip = 'text';
-                    e.currentTarget.style.webkitTextFillColor = 'transparent';
-                    e.currentTarget.style.backgroundClip = 'text';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '';
-                    e.currentTarget.style.webkitBackgroundClip = '';
-                    e.currentTarget.style.webkitTextFillColor = '';
-                    e.currentTarget.style.backgroundClip = '';
-                    e.currentTarget.style.color = '#D1D5DB';
-                  }}
-                >
+                <Link to="/services" className="text-gray-300 hover:text-purple-400 transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/case-studies" 
-                  className="text-gray-300 transition-colors"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                    e.currentTarget.style.webkitBackgroundClip = 'text';
-                    e.currentTarget.style.webkitTextFillColor = 'transparent';
-                    e.currentTarget.style.backgroundClip = 'text';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '';
-                    e.currentTarget.style.webkitBackgroundClip = '';
-                    e.currentTarget.style.webkitTextFillColor = '';
-                    e.currentTarget.style.backgroundClip = '';
-                    e.currentTarget.style.color = '#D1D5DB';
-                  }}
-                >
+                <Link to="/case-studies" className="text-gray-300 hover:text-purple-400 transition-colors">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/about" 
-                  className="text-gray-300 transition-colors"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                    e.currentTarget.style.webkitBackgroundClip = 'text';
-                    e.currentTarget.style.webkitTextFillColor = 'transparent';
-                    e.currentTarget.style.backgroundClip = 'text';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '';
-                    e.currentTarget.style.webkitBackgroundClip = '';
-                    e.currentTarget.style.webkitTextFillColor = '';
-                    e.currentTarget.style.backgroundClip = '';
-                    e.currentTarget.style.color = '#D1D5DB';
-                  }}
-                >
+                <Link to="/about" className="text-gray-300 hover:text-purple-400 transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/contact" 
-                  className="text-gray-300 transition-colors"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%)';
-                    e.currentTarget.style.webkitBackgroundClip = 'text';
-                    e.currentTarget.style.webkitTextFillColor = 'transparent';
-                    e.currentTarget.style.backgroundClip = 'text';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '';
-                    e.currentTarget.style.webkitBackgroundClip = '';
-                    e.currentTarget.style.webkitTextFillColor = '';
-                    e.currentTarget.style.backgroundClip = '';
-                    e.currentTarget.style.color = '#D1D5DB';
-                  }}
-                >
+                <Link to="/contact" className="text-gray-300 hover:text-purple-400 transition-colors">
                   Contact
                 </Link>
               </li>

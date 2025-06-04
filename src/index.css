@@ -75,34 +75,3 @@
 .gradient-accent-bg {
   background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%);
 }
-
-/* Replace any instances of rgb(192 132 252) with the gradient */
-*[style*="rgb(192 132 252)"], 
-*[style*="rgb(192, 132, 252)"],
-.bg-purple-400,
-.text-purple-400,
-.border-purple-400 {
-  background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%) !important;
-}
-
-/* Ensure text elements using the old color get proper gradient treatment */
-.text-purple-400 {
-  background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Handle hover states */
-.hover\:text-purple-400:hover,
-.hover\:bg-purple-400:hover,
-.hover\:border-purple-400:hover {
-  background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%) !important;
-}
-
-.hover\:text-purple-400:hover {
-  background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
