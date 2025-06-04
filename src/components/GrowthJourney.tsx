@@ -1,16 +1,17 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import WeekBlock from './growth-journey/WeekBlock';
-import MilestoneMarker from './growth-journey/MilestoneMarker';
 import TimelineBar from './growth-journey/TimelineBar';
+import ProgressBar from './growth-journey/ProgressBar';
 
 const GrowthJourney = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [currentWeek, setCurrentWeek] = useState(1);
 
   const scrollLeft = () => {
     if (containerRef.current) {
@@ -24,56 +25,74 @@ const GrowthJourney = () => {
     }
   };
 
+  // Update current week based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (containerRef.current) {
+        const scrollLeft = containerRef.current.scrollLeft;
+        const weekWidth = 350; // Approximate width of each week block
+        const newCurrentWeek = Math.floor(scrollLeft / weekWidth) + 1;
+        setCurrentWeek(Math.min(Math.max(newCurrentWeek, 1), 8));
+      }
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
   const weekData = [
     {
       week: 1,
-      tasks: ['Domain Setup', 'Inbox Setup', 'Company Analysis', 'Market Research', 'Offer Analysis', 'List Building']
+      title: "Set the Foundation",
+      description: "We start with research and set up the right Infrastructure.",
+      icon: "🛠️"
     },
     {
       week: 2,
-      tasks: ['Campaign Setup', 'Copywriting', 'List Verification', 'AI Personalisation', 'Automation Setup', 'Mail warm-up']
+      title: "Build Your Offer & Automate",
+      description: "Craft a clear offer and set up smart automations.",
+      icon: "🤖"
     },
     {
       week: 3,
-      tasks: ['Campaign Launch']
+      title: "Launch Time",
+      description: "Campaigns go live. Let's get the ball rolling.",
+      icon: "🚀"
     },
     {
       week: 4,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Response handling & qualification', 'Weekly performance reviews & iteration']
+      title: "First Wins",
+      description: "2–5 meetings start coming in. Early momentum.",
+      icon: "🤝"
     },
     {
       week: 5,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Response handling & qualification', 'Weekly performance reviews & iteration'],
-      milestone: { text: 'First booking', icon: '🎉' }
+      title: "Learn & Improve",
+      description: "Double down on what's working. Tweak what's not.",
+      icon: "🔁"
     },
     {
       week: 6,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Response handling & qualification', 'Weekly performance reviews & iteration']
+      title: "Time to Scale",
+      description: "Turn up the volume. More reach, more leads.",
+      icon: "📈"
     },
     {
       week: 7,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Response handling & qualification', 'Weekly performance reviews & iteration']
+      title: "Meetings Flowing In",
+      description: "32 meetings booked. You're in full motion.",
+      icon: "📅",
+      milestone: true
     },
     {
       week: 8,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Response handling & qualification', 'Weekly performance reviews & iteration']
-    },
-    {
-      week: 9,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Additional domain setup for scaling', 'Deliverability troubleshoot (if any)']
-    },
-    {
-      week: 10,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Additional domain setup for scaling', 'Deliverability troubleshoot (if any)']
-    },
-    {
-      week: 11,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Additional domain setup for scaling', 'Deliverability troubleshoot (if any)']
-    },
-    {
-      week: 12,
-      tasks: ['Continuous deliverability monitoring & adjustments', 'Continuous leads list building', 'Additional domain setup for scaling', 'Deliverability troubleshoot (if any)'],
-      milestone: { text: '32 bookings', icon: '🎯' }
+      title: "Meetings Flowing In",
+      description: "32 meetings booked. You're in full motion.",
+      icon: "⏳",
+      milestone: true
     }
   ];
 
@@ -87,12 +106,15 @@ const GrowthJourney = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Your 12-Week Growth Journey
+            Your 8-Week Growth Journey
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            From setup to scale - see exactly how we build your outbound system
+            From foundation to scale - see exactly how we build your outbound system
           </p>
         </motion.div>
+
+        {/* Progress Bar */}
+        <ProgressBar currentWeek={currentWeek} totalWeeks={8} isInView={isInView} />
 
         {/* Navigation Controls */}
         <div className="flex justify-center mb-8 space-x-4">
@@ -116,57 +138,30 @@ const GrowthJourney = () => {
 
         {/* Timeline Container */}
         <div className="relative">
+          {/* Timeline Bar */}
+          <TimelineBar isInView={isInView} />
+          
           {/* Horizontal scroll container */}
           <div 
             ref={containerRef}
-            className="flex overflow-x-auto pb-8 space-x-8 scrollbar-hide"
+            className="flex overflow-x-auto pb-8 space-x-8 scrollbar-hide relative z-10"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {weekData.map((week, index) => (
-              <motion.div
+              <WeekBlock 
                 key={week.week}
-                className="flex-shrink-0 relative"
-                initial={{ opacity: 0, x: 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <WeekBlock 
-                  week={week.week}
-                  tasks={week.tasks}
-                  isInView={isInView}
-                  delay={index * 0.1}
-                />
-                
-                {week.milestone && (
-                  <MilestoneMarker 
-                    text={week.milestone.text}
-                    icon={week.milestone.icon}
-                    position={week.week === 5 ? 'top' : 'bottom'}
-                    isInView={isInView}
-                    delay={index * 0.1 + 0.3}
-                  />
-                )}
-              </motion.div>
+                week={week.week}
+                title={week.title}
+                description={week.description}
+                icon={week.icon}
+                milestone={week.milestone}
+                isInView={isInView}
+                delay={index * 0.1}
+                isLast={index === weekData.length - 1}
+              />
             ))}
           </div>
-
-          {/* Timeline Bar - positioned at week 5 to 12 */}
-          <TimelineBar isInView={isInView} />
         </div>
-
-        {/* Week indicators */}
-        <motion.div 
-          className="flex justify-center mt-8 space-x-4 text-sm text-gray-500"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          {Array.from({ length: 12 }, (_, i) => (
-            <span key={i + 1} className="text-center">
-              Week {i + 1}
-            </span>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

@@ -8,25 +8,18 @@ interface TimelineBarProps {
 
 const TimelineBar: React.FC<TimelineBarProps> = ({ isInView }) => {
   return (
-    <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
+    <div className="absolute bottom-0 left-0 w-full h-px z-0">
       <motion.div 
-        className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium text-center shadow-lg"
-        initial={{ opacity: 0, x: -100, width: 0 }}
-        animate={isInView ? { opacity: 1, x: 0, width: "auto" } : { opacity: 0, x: -100, width: 0 }}
+        className="h-px bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 opacity-30"
+        initial={{ scaleX: 0 }}
+        animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ 
-          duration: 1.2, 
-          delay: 1,
+          duration: 2, 
+          delay: 0.5,
           ease: "easeOut"
         }}
-      >
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.6, delay: 1.8 }}
-        >
-          Scale what works and eliminate what doesn't
-        </motion.span>
-      </motion.div>
+        style={{ transformOrigin: "left" }}
+      />
     </div>
   );
 };
