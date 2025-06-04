@@ -109,11 +109,10 @@ const WeekBlock: React.FC<WeekBlockProps> = ({
       {!isLast && (
         <motion.div 
           className="absolute -bottom-4 left-1/2 w-8 h-px bg-gradient-to-r from-purple-500 to-blue-500 z-10"
-          style={{ marginLeft: '16px', width: '280px' }}
+          style={{ marginLeft: '16px', width: '280px', transformOrigin: 'left' }}
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ duration: 0.6, delay: delay + 0.5 }}
-          transformOrigin="left"
         />
       )}
     </div>
