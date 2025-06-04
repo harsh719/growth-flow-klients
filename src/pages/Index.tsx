@@ -3,7 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, Users, Target, TrendingUp, ArrowRight, DollarSign } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { CheckCircle, Users, Target, TrendingUp, ArrowRight, DollarSign, X } from 'lucide-react';
 
 const Index = () => {
   const processes = [
@@ -62,6 +63,53 @@ const Index = () => {
     }
   ];
 
+  const comparisonData = [
+    {
+      metric: "Time to get results",
+      klientsgrowth: "21-30 Days",
+      sdr: "3 Months",
+      agency: "2-4 Weeks",
+      diy: "3-6 Months"
+    },
+    {
+      metric: "Failure rate",
+      klientsgrowth: "Unlikely",
+      sdr: "Medium",
+      agency: "High",
+      diy: "Very High"
+    },
+    {
+      metric: "Price",
+      klientsgrowth: "Based On Results",
+      sdr: "+$8,000/month",
+      agency: "+$5K+ Media Buying Budget",
+      diy: "$3K For Software, Tools + Time Wasted"
+    }
+  ];
+
+  const faqData = [
+    {
+      question: "Why do this instead of hiring an SDR?",
+      answer: "Hiring an SDR comes with significant overhead costs, training time, and no guarantee of results. Our proven system delivers qualified meetings faster and more cost-effectively than traditional SDR hiring."
+    },
+    {
+      question: "How much more cost-effective is this, really?",
+      answer: "Our clients typically save 60-80% compared to hiring full-time SDRs or working with traditional agencies, while getting better results. We only succeed when you succeed."
+    },
+    {
+      question: "How does payment work?",
+      answer: "We work on a performance-based model. You only pay when we deliver qualified meetings. This aligns our incentives with your success and removes the risk from your side."
+    },
+    {
+      question: "How quickly do we see results?",
+      answer: "Most clients start seeing qualified meetings within 21-30 days of system implementation. We focus on fast execution and rapid iteration to get you results quickly."
+    },
+    {
+      question: "What's your refund policy?",
+      answer: "We offer a results guarantee. If we don't deliver the agreed-upon number of qualified meetings within the specified timeframe, we'll continue working until we do or provide a full refund."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
@@ -69,6 +117,9 @@ const Index = () => {
         <div className="absolute inset-0 gradient-bg opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="text-center">
+            <div className="inline-block border border-blue-500 rounded-full px-6 py-2 mb-8">
+              <span className="text-sm font-medium">Automate Lead Acquisition and Scale your Outbound</span>
+            </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
               We build <span className="gradient-text">hands-off growth systems</span><br />
               for B2B leaders
@@ -120,8 +171,75 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 3-Step Process */}
+      {/* Comparison Section */}
       <section className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Let's compare your options
+            </h2>
+          </div>
+          
+          <div className="overflow-x-auto">
+            <div className="min-w-full">
+              <div className="grid grid-cols-5 gap-4 mb-8">
+                <div className="text-center font-semibold"></div>
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <span className="text-xl font-bold">KlientsGrowth</span>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <span className="text-lg font-semibold">Hiring an SDR</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-lg font-semibold">Marketing Agency</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-lg font-semibold">Do It Yourself</span>
+                </div>
+              </div>
+
+              {comparisonData.map((row, index) => (
+                <div key={index} className="grid grid-cols-5 gap-4 py-4 border-t border-gray-700">
+                  <div className="font-medium text-gray-300">{row.metric}</div>
+                  <div className="text-center bg-gray-800 rounded-lg p-3">
+                    <span className="text-green-400 font-semibold">{row.klientsgrowth}</span>
+                  </div>
+                  <div className="text-center bg-gray-800 rounded-lg p-3">
+                    <span className="text-gray-300">{row.sdr}</span>
+                  </div>
+                  <div className="text-center bg-gray-800 rounded-lg p-3">
+                    <span className="text-gray-300">{row.agency}</span>
+                  </div>
+                  <div className="text-center bg-gray-800 rounded-lg p-3">
+                    <span className="text-gray-300">{row.diy}</span>
+                  </div>
+                </div>
+              ))}
+
+              <div className="grid grid-cols-5 gap-4 py-4 border-t border-gray-700">
+                <div className="font-medium text-gray-300">Guarantees</div>
+                <div className="text-center bg-green-900 rounded-lg p-3">
+                  <CheckCircle className="h-6 w-6 text-green-400 mx-auto" />
+                </div>
+                <div className="text-center bg-red-900 rounded-lg p-3">
+                  <X className="h-6 w-6 text-red-400 mx-auto" />
+                </div>
+                <div className="text-center bg-gray-800 rounded-lg p-3">
+                  <span className="text-gray-400">Rarely</span>
+                </div>
+                <div className="text-center bg-red-900 rounded-lg p-3">
+                  <X className="h-6 w-6 text-red-400 mx-auto" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3-Step Process */}
+      <section className="py-20 bg-gray-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -142,6 +260,46 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* New Way to Scale Section */}
+      <section className="py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              The new way to scale.
+            </h2>
+          </div>
+          
+          <div className="space-y-8 text-lg text-gray-300 leading-relaxed">
+            <p>
+              Cold email has a frustrating tradeoff: either <span className="text-white font-semibold">you sacrifice quality for volume</span> (
+              spray and pray ), or you spend way too much money for people to sit around 
+              and write one or two great emails a day. Our Approach is different. Every email 
+              we send is timely and relevant, and <span className="text-white font-semibold">we can do it at infinite scale. We win you 
+              millions in pipeline.</span>
+            </p>
+            
+            <p>
+              <span className="text-white font-semibold">Scaling personalized cold outbound is also easy to do wrong</span>—which has 
+              consequences for both your brand (making you look bad) and your business 
+              (losing you money). When you work with us, you're in good hands.
+            </p>
+            
+            <p>
+              We've sent millions of emails, <span className="text-white font-semibold">generated nearly $10M in pipeline</span>, and are 
+              neurotically obsessed with getting the little details right so everything goes 
+              smoothly.
+            </p>
+            
+            <div className="mt-12 pt-8">
+              <div className="text-2xl font-script mb-4">
+                <span className="font-serif italic">Harsh Shah</span>
+              </div>
+              <p className="text-gray-400">Harsh Shah, Founder and Traveller</p>
+            </div>
           </div>
         </div>
       </section>
@@ -172,8 +330,36 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* FAQ Section */}
       <section className="py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Commonly asked questions
+            </h2>
+          </div>
+          
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqData.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`}
+                className="bg-gray-800 border-gray-700 rounded-lg px-6"
+              >
+                <AccordionTrigger className="text-left text-lg font-medium hover:text-purple-400">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300 pb-4">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
