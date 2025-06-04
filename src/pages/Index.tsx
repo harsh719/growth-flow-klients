@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle, Users, Target, TrendingUp, ArrowRight, DollarSign, X } from 'lucide-react';
+import GrowthJourney from '@/components/GrowthJourney';
 
 const Index = () => {
   const processes = [
@@ -170,6 +170,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Growth Journey Section */}
+      <GrowthJourney />
 
       {/* Comparison Section */}
       <section className="py-20 bg-gray-900">
