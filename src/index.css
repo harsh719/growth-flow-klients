@@ -75,3 +75,31 @@
 .gradient-accent-bg {
   background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%);
 }
+
+/* Replace any potential instances of rgb(192 132 252) with gradient */
+*[style*="rgb(192 132 252)"],
+*[style*="rgb(192, 132, 252)"],
+*[style*="#c084fc"],
+.bg-purple-400,
+.text-purple-400,
+.border-purple-400 {
+  background: linear-gradient(135deg, #0EA5E9 0%, #6366F1 50%, #8B5CF6 100%) !important;
+}
+
+/* Ensure text contrast for gradient backgrounds */
+.gradient-bg,
+.gradient-secondary-bg,
+.gradient-accent-bg,
+*[style*="rgb(192 132 252)"],
+*[style*="rgb(192, 132, 252)"],
+*[style*="#c084fc"] {
+  color: white;
+}
+
+/* Hover states for gradient elements */
+.gradient-bg:hover,
+.gradient-secondary-bg:hover,
+.gradient-accent-bg:hover {
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
