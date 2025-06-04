@@ -43,17 +43,18 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
-      <section className="gradient-bg py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-20">
+        <div className="absolute inset-0 gradient-bg opacity-10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Done-For-You <span className="text-yellow-300">Growth Systems</span>
+              Done-For-You <span className="gradient-text">Growth Systems</span>
             </h1>
             <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
               We build, manage, and optimize your entire outbound sales infrastructure. 
               Focus on closing deals while we generate qualified meetings.
             </p>
-            <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100 text-lg px-8 py-3">
+            <Button asChild size="lg" className="gradient-bg hover:opacity-90 text-white border-0 text-lg px-8 py-3">
               <Link to="/contact">Start Your Growth System</Link>
             </Button>
           </div>

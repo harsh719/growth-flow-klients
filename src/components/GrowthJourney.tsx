@@ -12,6 +12,7 @@ const GrowthJourney = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [currentWeek, setCurrentWeek] = useState(1);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
 
   const scrollLeft = () => {
     if (containerRef.current) {
@@ -25,12 +26,71 @@ const GrowthJourney = () => {
     }
   };
 
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (!isInView) return;
+
+    const autoScroll = () => {
+      if (containerRef.current && !isAutoScrolling) {
+        setIsAutoScrolling(true);
+        const container = containerRef.current;
+        const weekWidth = 350; // Width of each week block including spacing
+        const totalWeeks = 8;
+        
+        let currentScrollWeek = 0;
+        
+        const scrollInterval = setInterval(() => {
+          if (currentScrollWeek < totalWeeks - 1) {
+            currentScrollWeek++;
+            container.scrollTo({
+              left: currentScrollWeek * weekWidth,
+              behavior: 'smooth'
+            });
+          } else {
+            clearInterval(scrollInterval);
+            setIsAutoScrolling(false);
+          }
+        }, 2000); // Scroll every 2 seconds
+
+        return () => {
+          clearInterval(scrollInterval);
+          setIsAutoScrolling(false);
+        };
+      }
+    };
+
+    // Start auto-scroll after a delay to let animations settle
+    const timeout = setTimeout(autoScroll, 3000);
+    
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [isInView, isAutoScrolling]);
+
   // Update current week based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (containerRef.current && !isAutoScrolling) {
+        const scrollLeft = containerRef.current.scrollLeft;
+        const weekWidth = 350; // Approximate width of each week block
+        const newCurrentWeek = Math.floor(scrollLeft / weekWidth) + 1;
+        setCurrentWeek(Math.min(Math.max(newCurrentWeek, 1), 8));
+      }
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, [isAutoScrolling]);
+
+  // Update current week during auto-scroll
   useEffect(() => {
     const handleScroll = () => {
       if (containerRef.current) {
         const scrollLeft = containerRef.current.scrollLeft;
-        const weekWidth = 350; // Approximate width of each week block
+        const weekWidth = 350;
         const newCurrentWeek = Math.floor(scrollLeft / weekWidth) + 1;
         setCurrentWeek(Math.min(Math.max(newCurrentWeek, 1), 8));
       }
@@ -122,7 +182,8 @@ const GrowthJourney = () => {
             variant="outline"
             size="sm"
             onClick={scrollLeft}
-            className="bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700"
+            disabled={isAutoScrolling}
+            className="bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700 disabled:opacity-50"
           >
             <ChevronLeft className="h-4 w-4" />
           </Button>
@@ -130,7 +191,8 @@ const GrowthJourney = () => {
             variant="outline"
             size="sm"
             onClick={scrollRight}
-            className="bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700"
+            disabled={isAutoScrolling}
+            className="bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700 disabled:opacity-50"
           >
             <ChevronRight className="h-4 w-4" />
           </Button>

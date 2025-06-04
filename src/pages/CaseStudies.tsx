@@ -109,11 +109,12 @@ const CaseStudies = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
-      <section className="gradient-bg py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-20">
+        <div className="absolute inset-0 gradient-bg opacity-10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Real Results from <span className="text-yellow-300">Real Clients</span>
+              Real Results from <span className="gradient-text">Real Clients</span>
             </h1>
             <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
               See how we've helped B2B companies generate qualified meetings and drive revenue growth across diverse industries
