@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { Calculator, Users, Target, DollarSign, TrendingUp, CheckCircle } from 'lucide-react';
+import { Calculator, Users, Target, DollarSign, TrendingUp, CheckCircle, AlertTriangle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AnimatedCounter from '@/components/AnimatedCounter';
 
@@ -30,12 +30,13 @@ const ROICalculator = () => {
   const [comparison, setComparison] = useState({
     sdrApproach: {
       sdrsNeeded: 0,
-      sdrCost: 0,
+      annualSdrCost: 0,
       roi: 0
     },
     ourModel: {
       meetings: 32,
-      cost: 9536,
+      monthlyCost: 0,
+      annualCost: 0,
       deals: 0,
       revenue: 0,
       roi: 0
@@ -62,25 +63,30 @@ const ROICalculator = () => {
       roi: 0
     });
 
-    // SDR Approach Calculations
+    // SDR Approach Calculations (Annual)
     const sdrsNeeded = Math.ceil(inputs.emailCapacity / 3000);
-    const sdrCost = sdrsNeeded * 4000;
-    const sdrRoi = sdrCost > 0 ? ((monthlyRevenue - sdrCost) / sdrCost) * 100 : 0;
+    const annualSdrCost = sdrsNeeded * 4000 * 12; // Annual cost
+    const annualRevenueFromSdr = monthlyRevenue * 12;
+    const sdrRoi = annualSdrCost > 0 ? ((annualRevenueFromSdr - annualSdrCost) / annualSdrCost) * 100 : 0;
 
-    // Our Model Calculations
-    const ourModelDeals = (32 * inputs.conversionRate) / 100;
+    // Our Model Calculations - Cost based on actual meetings booked
+    const ourMonthlyCost = monthlyMeetings * 298; // Pay per meeting actually booked
+    const ourAnnualCost = ourMonthlyCost * 12;
+    const ourModelDeals = (monthlyMeetings * inputs.conversionRate) / 100;
     const ourModelRevenue = ourModelDeals * inputs.customerLifetimeValue;
-    const ourModelRoi = ((ourModelRevenue - 9536) / 9536) * 100;
+    const ourAnnualRevenue = ourModelRevenue * 12;
+    const ourModelRoi = ourAnnualCost > 0 ? ((ourAnnualRevenue - ourAnnualCost) / ourAnnualCost) * 100 : 0;
 
     setComparison({
       sdrApproach: {
         sdrsNeeded,
-        sdrCost,
+        annualSdrCost,
         roi: sdrRoi
       },
       ourModel: {
-        meetings: 32,
-        cost: 9536,
+        meetings: monthlyMeetings,
+        monthlyCost: ourMonthlyCost,
+        annualCost: ourAnnualCost,
         deals: ourModelDeals,
         revenue: ourModelRevenue,
         roi: ourModelRoi
@@ -99,7 +105,7 @@ const ROICalculator = () => {
     document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const savings = comparison.ourModel.revenue - comparison.sdrApproach.sdrCost;
+  const annualSavings = comparison.sdrApproach.annualSdrCost - comparison.ourModel.annualCost;
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -307,6 +313,11 @@ const ROICalculator = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <div className="flex items-center p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
+                    <AlertTriangle className="w-5 h-5 text-red-400 mr-2 flex-shrink-0" />
+                    <p className="text-sm text-red-300">Pay fixed monthly fees regardless of results</p>
+                  </div>
+                  
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <div className="text-gray-400">SDRs Needed</div>
@@ -315,20 +326,23 @@ const ROICalculator = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="text-gray-400">Monthly Cost</div>
+                      <div className="text-gray-400">Annual Cost</div>
                       <div className="text-2xl font-bold">
-                        $<AnimatedCounter value={comparison.sdrApproach.sdrCost} />
+                        $<AnimatedCounter value={comparison.sdrApproach.annualSdrCost} />
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {comparison.sdrApproach.sdrsNeeded} SDRs × $4k/month × 12 months
                       </div>
                     </div>
                   </div>
                   <div className="pt-4 border-t border-gray-600">
-                    <div className="text-gray-400">Monthly Revenue</div>
+                    <div className="text-gray-400">Annual Revenue</div>
                     <div className="text-2xl font-bold text-green-400">
-                      $<AnimatedCounter value={metrics.monthlyRevenue} />
+                      $<AnimatedCounter value={metrics.monthlyRevenue * 12} />
                     </div>
                   </div>
                   <div>
-                    <div className="text-gray-400">ROI</div>
+                    <div className="text-gray-400">Annual ROI</div>
                     <div className="text-3xl font-bold text-green-400">
                       <AnimatedCounter value={comparison.sdrApproach.roi} decimals={1} />%
                     </div>
@@ -348,32 +362,53 @@ const ROICalculator = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <div className="flex items-center p-3 bg-green-900/20 border border-green-500/30 rounded-lg">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-2 flex-shrink-0" />
+                    <p className="text-sm text-green-300">Pay only after meetings are booked - zero risk!</p>
+                  </div>
+
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <div className="text-gray-400">Guaranteed Meetings</div>
-                      <div className="text-2xl font-bold">32</div>
-                      <div className="text-sm text-gray-500">in 60 days</div>
+                      <div className="text-gray-400">Monthly Meetings</div>
+                      <div className="text-2xl font-bold">
+                        <AnimatedCounter value={metrics.monthlyMeetings} decimals={1} />
+                      </div>
+                      <div className="text-sm text-gray-500">based on your metrics</div>
                     </div>
                     <div>
-                      <div className="text-gray-400">Total Cost</div>
-                      <div className="text-2xl font-bold">$9,536</div>
-                      <div className="text-sm text-gray-500">32 × $298</div>
+                      <div className="text-gray-400">Monthly Cost</div>
+                      <div className="text-2xl font-bold">
+                        $<AnimatedCounter value={comparison.ourModel.monthlyCost} />
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        <AnimatedCounter value={metrics.monthlyMeetings} decimals={1} /> meetings × $298
+                      </div>
                     </div>
                   </div>
+                  
                   <div className="pt-4 border-t border-gray-600">
-                    <div className="text-gray-400">Expected Deals</div>
-                    <div className="text-2xl font-bold text-green-400">
-                      <AnimatedCounter value={comparison.ourModel.deals} decimals={1} />
+                    <div className="text-gray-400">Annual Cost</div>
+                    <div className="text-2xl font-bold">
+                      $<AnimatedCounter value={comparison.ourModel.annualCost} />
                     </div>
                   </div>
+
                   <div>
-                    <div className="text-gray-400">Expected Revenue</div>
+                    <div className="text-gray-400">Expected Annual Deals</div>
                     <div className="text-2xl font-bold text-green-400">
-                      $<AnimatedCounter value={comparison.ourModel.revenue} />
+                      <AnimatedCounter value={comparison.ourModel.deals * 12} decimals={1} />
                     </div>
                   </div>
+                  
                   <div>
-                    <div className="text-gray-400">ROI</div>
+                    <div className="text-gray-400">Expected Annual Revenue</div>
+                    <div className="text-2xl font-bold text-green-400">
+                      $<AnimatedCounter value={comparison.ourModel.revenue * 12} />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="text-gray-400">Annual ROI</div>
                     <div className="text-3xl font-bold text-green-400">
                       <AnimatedCounter value={comparison.ourModel.roi} decimals={1} />%
                     </div>
@@ -383,7 +418,7 @@ const ROICalculator = () => {
             </div>
 
             {/* Savings Highlight */}
-            {savings > 0 && (
+            {annualSavings > 0 && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -394,7 +429,7 @@ const ROICalculator = () => {
                 <Card className="bg-gradient-to-r from-green-500/20 to-blue-500/20 border-green-500/50 max-w-2xl mx-auto">
                   <CardContent className="py-8">
                     <div className="text-2xl font-bold text-green-400 mb-2">
-                      💡 You save $<AnimatedCounter value={savings} /> and 90 days of ramp-up!
+                      💡 You save $<AnimatedCounter value={annualSavings} /> annually and 90 days of ramp-up!
                     </div>
                     <div className="text-gray-300">
                       Skip the hiring hassle and get guaranteed results faster.
