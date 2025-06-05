@@ -35,8 +35,7 @@ const ROICalculator = () => {
     },
     ourModel: {
       meetings: 32,
-      monthlyCost: 0,
-      annualCost: 0,
+      totalCost: 0,
       deals: 0,
       revenue: 0,
       roi: 0
@@ -69,13 +68,11 @@ const ROICalculator = () => {
     const annualRevenueFromSdr = monthlyRevenue * 12;
     const sdrRoi = annualSdrCost > 0 ? ((annualRevenueFromSdr - annualSdrCost) / annualSdrCost) * 100 : 0;
 
-    // Our Model Calculations - Cost based on actual meetings booked
-    const ourMonthlyCost = monthlyMeetings * 298; // Pay per meeting actually booked
-    const ourAnnualCost = ourMonthlyCost * 12;
+    // Our Model Calculations - Total cost based on meetings booked
+    const totalCost = monthlyMeetings * 298; // Total cost for meetings booked
     const ourModelDeals = (monthlyMeetings * inputs.conversionRate) / 100;
     const ourModelRevenue = ourModelDeals * inputs.customerLifetimeValue;
-    const ourAnnualRevenue = ourModelRevenue * 12;
-    const ourModelRoi = ourAnnualCost > 0 ? ((ourAnnualRevenue - ourAnnualCost) / ourAnnualCost) * 100 : 0;
+    const ourModelRoi = totalCost > 0 ? ((ourModelRevenue - totalCost) / totalCost) * 100 : 0;
 
     setComparison({
       sdrApproach: {
@@ -85,8 +82,7 @@ const ROICalculator = () => {
       },
       ourModel: {
         meetings: monthlyMeetings,
-        monthlyCost: ourMonthlyCost,
-        annualCost: ourAnnualCost,
+        totalCost: totalCost,
         deals: ourModelDeals,
         revenue: ourModelRevenue,
         roi: ourModelRoi
@@ -105,7 +101,7 @@ const ROICalculator = () => {
     document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const annualSavings = comparison.sdrApproach.annualSdrCost - comparison.ourModel.annualCost;
+  const annualSavings = comparison.sdrApproach.annualSdrCost - (comparison.ourModel.totalCost * 12);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -376,39 +372,32 @@ const ROICalculator = () => {
                       <div className="text-sm text-gray-500">based on your metrics</div>
                     </div>
                     <div>
-                      <div className="text-gray-400">Monthly Cost</div>
+                      <div className="text-gray-400">Total Cost</div>
                       <div className="text-2xl font-bold">
-                        $<AnimatedCounter value={comparison.ourModel.monthlyCost} />
+                        $<AnimatedCounter value={comparison.ourModel.totalCost} />
                       </div>
                       <div className="text-sm text-gray-500">
                         <AnimatedCounter value={metrics.monthlyMeetings} decimals={1} /> meetings × $298
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="pt-4 border-t border-gray-600">
-                    <div className="text-gray-400">Annual Cost</div>
-                    <div className="text-2xl font-bold">
-                      $<AnimatedCounter value={comparison.ourModel.annualCost} />
-                    </div>
-                  </div>
 
                   <div>
-                    <div className="text-gray-400">Expected Annual Deals</div>
+                    <div className="text-gray-400">Expected Deals</div>
                     <div className="text-2xl font-bold text-green-400">
-                      <AnimatedCounter value={comparison.ourModel.deals * 12} decimals={1} />
+                      <AnimatedCounter value={comparison.ourModel.deals} decimals={1} />
                     </div>
                   </div>
                   
                   <div>
-                    <div className="text-gray-400">Expected Annual Revenue</div>
+                    <div className="text-gray-400">Expected Revenue</div>
                     <div className="text-2xl font-bold text-green-400">
-                      $<AnimatedCounter value={comparison.ourModel.revenue * 12} />
+                      $<AnimatedCounter value={comparison.ourModel.revenue} />
                     </div>
                   </div>
                   
                   <div>
-                    <div className="text-gray-400">Annual ROI</div>
+                    <div className="text-gray-400">ROI</div>
                     <div className="text-3xl font-bold text-green-400">
                       <AnimatedCounter value={comparison.ourModel.roi} decimals={1} />%
                     </div>
