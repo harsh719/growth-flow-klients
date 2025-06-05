@@ -72,7 +72,8 @@ const ROICalculator = () => {
     const totalCost = monthlyMeetings * 298; // Total cost for meetings booked
     const ourModelDeals = (monthlyMeetings * inputs.conversionRate) / 100;
     const ourModelRevenue = ourModelDeals * inputs.customerLifetimeValue;
-    const ourModelRoi = totalCost > 0 ? ((ourModelRevenue - totalCost) / totalCost) * 100 : 0;
+    const ourModelAnnualRevenue = ourModelRevenue * 12; // Calculate annual revenue
+    const ourModelRoi = totalCost > 0 ? ((ourModelAnnualRevenue - totalCost) / totalCost) * 100 : 0;
 
     setComparison({
       sdrApproach: {
@@ -84,7 +85,7 @@ const ROICalculator = () => {
         meetings: monthlyMeetings,
         totalCost: totalCost,
         deals: ourModelDeals,
-        revenue: ourModelRevenue,
+        revenue: ourModelAnnualRevenue, // Store annual revenue
         roi: ourModelRoi
       }
     });
@@ -390,7 +391,7 @@ const ROICalculator = () => {
                   </div>
                   
                   <div>
-                    <div className="text-gray-400">Expected Revenue</div>
+                    <div className="text-gray-400">Annual Revenue</div>
                     <div className="text-2xl font-bold text-green-400">
                       $<AnimatedCounter value={comparison.ourModel.revenue} />
                     </div>
