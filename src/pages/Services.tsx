@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -43,8 +44,8 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Done-For-You B2B Growth Systems | KlientsGrowth Services</title>
-        <meta name="description" content="Complete outbound sales infrastructure managed by experts. We guarantee 32 qualified meetings in 60 days or work for free. Perfect for IT Support, Cybersecurity & B2B SaaS companies." />
+        <title>Risk-Free B2B Growth Systems – Pay Per Meeting | KlientsGrowth</title>
+        <meta name="description" content="Only pay when we deliver. KlientsGrowth offers risk-free outbound and SEO systems for B2B companies — with a pay-per-meeting model that guarantees results without upfront risk." />
       </Helmet>
       
       <div className="min-h-screen bg-gray-900 text-white">
