@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -16,7 +17,7 @@ const About = () => {
       label: "Meetings Generated"
     },
     {
-      number: "$3M+",
+      number: "₨3M+",
       label: "Revenue Generated"
     },
     {
