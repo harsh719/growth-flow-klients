@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { Calculator, Users, Target, DollarSign, TrendingUp, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Calculator, Users, Target, IndianRupee, TrendingUp, CheckCircle, AlertTriangle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import { Helmet } from 'react-helmet-async';
@@ -182,7 +183,7 @@ const ROICalculator = () => {
                     </div>
                     
                     <div>
-                      <Label htmlFor="clv">Customer Lifetime Value (USD)</Label>
+                      <Label htmlFor="clv">Customer Lifetime Value (INR)</Label>
                       <Input
                         id="clv"
                         type="number"
@@ -287,7 +288,7 @@ const ROICalculator = () => {
                       <div className="text-center p-4 bg-gray-700 rounded-lg">
                         <div className="text-purple-400 font-semibold">Monthly Revenue</div>
                         <div className="text-2xl font-bold">
-                          $<AnimatedCounter value={metrics.monthlyRevenue} />
+                          ₹<AnimatedCounter value={metrics.monthlyRevenue} />
                         </div>
                       </div>
                     </div>
@@ -331,17 +332,17 @@ const ROICalculator = () => {
                       <div>
                         <div className="text-gray-400">Annual Cost</div>
                         <div className="text-2xl font-bold">
-                          $<AnimatedCounter value={comparison.sdrApproach.annualSdrCost} />
+                          ₹<AnimatedCounter value={comparison.sdrApproach.annualSdrCost} />
                         </div>
                         <div className="text-sm text-gray-500">
-                          {comparison.sdrApproach.sdrsNeeded} SDRs × $4k/month × 12 months
+                          {comparison.sdrApproach.sdrsNeeded} SDRs × ₹4k/month × 12 months
                         </div>
                       </div>
                     </div>
                     <div className="pt-4 border-t border-gray-600">
                       <div className="text-gray-400">Annual Revenue</div>
                       <div className="text-2xl font-bold text-green-400">
-                        $<AnimatedCounter value={metrics.monthlyRevenue * 12} />
+                        ₹<AnimatedCounter value={metrics.monthlyRevenue * 12} />
                       </div>
                     </div>
                     <div>
@@ -381,10 +382,10 @@ const ROICalculator = () => {
                       <div>
                         <div className="text-gray-400">Total Cost</div>
                         <div className="text-2xl font-bold">
-                          $<AnimatedCounter value={comparison.ourModel.totalCost} />
+                          ₹<AnimatedCounter value={comparison.ourModel.totalCost} />
                         </div>
                         <div className="text-sm text-gray-500">
-                          <AnimatedCounter value={metrics.monthlyMeetings} decimals={1} /> meetings × $298
+                          <AnimatedCounter value={metrics.monthlyMeetings} decimals={1} /> meetings × ₹298
                         </div>
                       </div>
                     </div>
@@ -399,7 +400,7 @@ const ROICalculator = () => {
                     <div>
                       <div className="text-gray-400">Annual Revenue</div>
                       <div className="text-2xl font-bold text-green-400">
-                        $<AnimatedCounter value={comparison.ourModel.revenue} />
+                        ₹<AnimatedCounter value={comparison.ourModel.revenue} />
                       </div>
                     </div>
                     
@@ -425,7 +426,7 @@ const ROICalculator = () => {
                   <Card className="bg-gradient-to-r from-green-500/20 to-blue-500/20 border-green-500/50 max-w-2xl mx-auto">
                     <CardContent className="py-8">
                       <div className="text-2xl font-bold text-green-400 mb-2">
-                        💡 You save $<AnimatedCounter value={annualSavings} /> annually and 90 days of ramp-up!
+                        💡 You save ₹<AnimatedCounter value={annualSavings} /> annually and 90 days of ramp-up!
                       </div>
                       <div className="text-gray-300">
                         Skip the hiring hassle and get guaranteed results faster.
@@ -452,7 +453,7 @@ const ROICalculator = () => {
               <span className="gradient-text">guaranteed meetings</span> instead?
             </h3>
             <Button className="gradient-bg hover:opacity-90 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 hover:scale-105">
-              <DollarSign className="mr-2" />
+              <IndianRupee className="mr-2" />
               Book Free Strategy Call
             </Button>
           </motion.div>

@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Target, Users, Shield, Gamepad2, Network, ArrowRight } from 'lucide-react';
+import { Target, Users, Shield, Gamepad2, Network, ArrowRight, IndianRupee } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
 const CaseStudies = () => {
@@ -16,7 +17,7 @@ const CaseStudies = () => {
       results: {
         meetings: 42,
         timeline: "60 days",
-        revenue: "$150,000",
+        revenue: "₹150,000",
         conversionRate: "14%"
       },
       testimonial: {
@@ -34,7 +35,7 @@ const CaseStudies = () => {
       results: {
         meetings: 35,
         timeline: "45 days",
-        revenue: "$200,000",
+        revenue: "₹200,000",
         conversionRate: "16%"
       },
       testimonial: {
@@ -52,7 +53,7 @@ const CaseStudies = () => {
       results: {
         meetings: 28,
         timeline: "50 days",
-        revenue: "$120,000",
+        revenue: "₹120,000",
         conversionRate: "12%"
       },
       testimonial: {
@@ -70,7 +71,7 @@ const CaseStudies = () => {
       results: {
         meetings: 31,
         timeline: "55 days",
-        revenue: "$95,000",
+        revenue: "₹95,000",
         conversionRate: "13%"
       },
       testimonial: {
@@ -88,7 +89,7 @@ const CaseStudies = () => {
       results: {
         meetings: 38,
         timeline: "52 days",
-        revenue: "$180,000",
+        revenue: "₹180,000",
         conversionRate: "15%"
       },
       testimonial: {
