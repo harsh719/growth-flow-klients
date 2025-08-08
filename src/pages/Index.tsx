@@ -6,20 +6,22 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CheckCircle, Users, Target, TrendingUp, ArrowRight, DollarSign, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import GrowthJourney from '@/components/GrowthJourney';
+
 const Index = () => {
   const processes = [{
     step: "01",
     title: "Build System",
     description: "We create your custom outbound infrastructure with proven templates and sequences"
   }, {
-    step: "02",
+    step: "02", 
     title: "Target Decision-Makers",
     description: "Our team identifies and reaches out to your ideal prospects with personalized messaging"
   }, {
     step: "03",
-    title: "Deliver Results",
+    title: "Deliver Results", 
     description: "Get consistent meetings and pipeline growth with our proven systematic approach"
   }];
+
   const niches = [{
     icon: <Users className="h-8 w-8 text-purple-400" />,
     title: "IT Support (Healthcare)",
@@ -37,6 +39,7 @@ const Index = () => {
     title: "Recruitment",
     description: "Scale your talent acquisition business"
   }];
+
   const testimonials = [{
     quote: "KlientsGrowth transformed our lead generation completely. The quality of meetings was exceptional.",
     author: "Sarah Johnson",
@@ -44,10 +47,11 @@ const Index = () => {
     result: "4 key clients secured"
   }, {
     quote: "We achieved +85K in additional revenue in just one quarter with their systematic approach.",
-    author: "Michael Chen",
+    author: "Michael Chen", 
     company: "Vention",
     result: "+85K revenue boost"
   }];
+
   const comparisonData = [{
     metric: "Time to get results",
     klientsgrowth: "21-30 Days",
@@ -57,16 +61,17 @@ const Index = () => {
   }, {
     metric: "Failure rate",
     klientsgrowth: "Unlikely",
-    sdr: "Medium",
+    sdr: "Medium", 
     agency: "High",
     diy: "Very High"
   }, {
     metric: "Price",
     klientsgrowth: "Based On Results",
-    sdr: "+$8,000/month",
-    agency: "+$5K+ Media Buying Budget",
-    diy: "$3K For Software, Tools + Time Wasted"
+    sdr: "+₹8,000/month",
+    agency: "+₹5K+ Media Buying Budget",
+    diy: "₹3K For Software, Tools + Time Wasted"
   }];
+
   const faqData = [{
     question: "Why do this instead of hiring an SDR?",
     answer: "Hiring an SDR comes with significant overhead costs, training time, and no guarantee of results. Our proven system delivers qualified meetings faster and more cost-effectively than traditional SDR hiring."
@@ -83,6 +88,7 @@ const Index = () => {
     question: "What's your refund policy?",
     answer: "We offer a results guarantee. If we don't deliver the agreed-upon number of qualified meetings within the specified timeframe, we'll continue working until we do or provide a full refund."
   }];
+
   return <>
       <Helmet>
         <title>#1 Growth Partner for B2B Leaders - KlientsGrowth</title>
@@ -174,7 +180,7 @@ const Index = () => {
               </p>
               
               <p>
-                We've sent millions of emails, <span className="text-white font-semibold">generated nearly $10M in pipeline</span>, and are 
+                We've sent millions of emails, <span className="text-white font-semibold">generated nearly ₹10M in pipeline</span>, and are 
                 neurotically obsessed with getting the little details right so everything goes 
                 smoothly.
               </p>
@@ -296,7 +302,7 @@ const Index = () => {
                 data: {
                   time: "3 Months",
                   failure: "Medium",
-                  price: "+$8,000/month",
+                  price: "+₹8,000/month",
                   guarantee: false
                 }
               }, {
@@ -304,7 +310,7 @@ const Index = () => {
                 data: {
                   time: "2-4 Weeks",
                   failure: "High",
-                  price: "+$5K+ Media Buying Budget",
+                  price: "+₹5K+ Media Buying Budget",
                   guarantee: "Rarely"
                 }
               }, {
@@ -312,7 +318,7 @@ const Index = () => {
                 data: {
                   time: "3-6 Months",
                   failure: "Very High",
-                  price: "$3K For Software, Tools + Time Wasted",
+                  price: "₹3K For Software, Tools + Time Wasted",
                   guarantee: false
                 }
               }].map((option, index) => <Card key={index} className="bg-gray-800 border-gray-700 hover:border-gradient">
@@ -471,4 +477,5 @@ const Index = () => {
       </div>
     </>;
 };
+
 export default Index;
