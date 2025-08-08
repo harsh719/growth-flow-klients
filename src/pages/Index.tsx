@@ -6,113 +6,84 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CheckCircle, Users, Target, TrendingUp, ArrowRight, DollarSign, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import GrowthJourney from '@/components/GrowthJourney';
-
 const Index = () => {
-  const processes = [
-    {
-      step: "01",
-      title: "Build System",
-      description: "We create your custom outbound infrastructure with proven templates and sequences"
-    },
-    {
-      step: "02", 
-      title: "Target Decision-Makers",
-      description: "Our team identifies and reaches out to your ideal prospects with personalized messaging"
-    },
-    {
-      step: "03",
-      title: "Deliver Results", 
-      description: "Get consistent meetings and pipeline growth with our proven systematic approach"
-    }
-  ];
-
-  const niches = [
-    {
-      icon: <Users className="h-8 w-8 text-purple-400" />,
-      title: "IT Support (Healthcare)",
-      description: "Specialized outreach for healthcare IT providers"
-    },
-    {
-      icon: <Target className="h-8 w-8 text-purple-400" />,
-      title: "Cybersecurity",
-      description: "Generate qualified leads for security solutions"
-    },
-    {
-      icon: <TrendingUp className="h-8 w-8 text-purple-400" />,
-      title: "B2B SaaS",
-      description: "Scale your software business with targeted outreach"
-    },
-    {
-      icon: <DollarSign className="h-8 w-8 text-purple-400" />,
-      title: "Recruitment",
-      description: "Scale your talent acquisition business"
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: "KlientsGrowth transformed our lead generation completely. The quality of meetings was exceptional.",
-      author: "Sarah Johnson",
-      company: "HelpCare AI",
-      result: "4 key clients secured"
-    },
-    {
-      quote: "We achieved +85K in additional revenue in just one quarter with their systematic approach.",
-      author: "Michael Chen", 
-      company: "Vention",
-      result: "+85K revenue boost"
-    }
-  ];
-
-  const comparisonData = [
-    {
-      metric: "Time to get results",
-      klientsgrowth: "21-30 Days",
-      sdr: "3 Months",
-      agency: "2-4 Weeks",
-      diy: "3-6 Months"
-    },
-    {
-      metric: "Failure rate",
-      klientsgrowth: "Unlikely",
-      sdr: "Medium",
-      agency: "High",
-      diy: "Very High"
-    },
-    {
-      metric: "Price",
-      klientsgrowth: "Based On Results",
-      sdr: "+$8,000/month",
-      agency: "+$5K+ Media Buying Budget",
-      diy: "$3K For Software, Tools + Time Wasted"
-    }
-  ];
-
-  const faqData = [
-    {
-      question: "Why do this instead of hiring an SDR?",
-      answer: "Hiring an SDR comes with significant overhead costs, training time, and no guarantee of results. Our proven system delivers qualified meetings faster and more cost-effectively than traditional SDR hiring."
-    },
-    {
-      question: "How much more cost-effective is this, really?",
-      answer: "Our clients typically save 60-80% compared to hiring full-time SDRs or working with traditional agencies, while getting better results. We only succeed when you succeed."
-    },
-    {
-      question: "How does payment work?",
-      answer: "We work on a performance-based model. You only pay when we deliver qualified meetings. This aligns our incentives with your success and removes the risk from your side."
-    },
-    {
-      question: "How quickly do we see results?",
-      answer: "Most clients start seeing qualified meetings within 21-30 days of system implementation. We focus on fast execution and rapid iteration to get you results quickly."
-    },
-    {
-      question: "What's your refund policy?",
-      answer: "We offer a results guarantee. If we don't deliver the agreed-upon number of qualified meetings within the specified timeframe, we'll continue working until we do or provide a full refund."
-    }
-  ];
-
-  return (
-    <>
+  const processes = [{
+    step: "01",
+    title: "Build System",
+    description: "We create your custom outbound infrastructure with proven templates and sequences"
+  }, {
+    step: "02",
+    title: "Target Decision-Makers",
+    description: "Our team identifies and reaches out to your ideal prospects with personalized messaging"
+  }, {
+    step: "03",
+    title: "Deliver Results",
+    description: "Get consistent meetings and pipeline growth with our proven systematic approach"
+  }];
+  const niches = [{
+    icon: <Users className="h-8 w-8 text-purple-400" />,
+    title: "IT Support (Healthcare)",
+    description: "Specialized outreach for healthcare IT providers"
+  }, {
+    icon: <Target className="h-8 w-8 text-purple-400" />,
+    title: "Cybersecurity",
+    description: "Generate qualified leads for security solutions"
+  }, {
+    icon: <TrendingUp className="h-8 w-8 text-purple-400" />,
+    title: "B2B SaaS",
+    description: "Scale your software business with targeted outreach"
+  }, {
+    icon: <DollarSign className="h-8 w-8 text-purple-400" />,
+    title: "Recruitment",
+    description: "Scale your talent acquisition business"
+  }];
+  const testimonials = [{
+    quote: "KlientsGrowth transformed our lead generation completely. The quality of meetings was exceptional.",
+    author: "Sarah Johnson",
+    company: "HelpCare AI",
+    result: "4 key clients secured"
+  }, {
+    quote: "We achieved +85K in additional revenue in just one quarter with their systematic approach.",
+    author: "Michael Chen",
+    company: "Vention",
+    result: "+85K revenue boost"
+  }];
+  const comparisonData = [{
+    metric: "Time to get results",
+    klientsgrowth: "21-30 Days",
+    sdr: "3 Months",
+    agency: "2-4 Weeks",
+    diy: "3-6 Months"
+  }, {
+    metric: "Failure rate",
+    klientsgrowth: "Unlikely",
+    sdr: "Medium",
+    agency: "High",
+    diy: "Very High"
+  }, {
+    metric: "Price",
+    klientsgrowth: "Based On Results",
+    sdr: "+$8,000/month",
+    agency: "+$5K+ Media Buying Budget",
+    diy: "$3K For Software, Tools + Time Wasted"
+  }];
+  const faqData = [{
+    question: "Why do this instead of hiring an SDR?",
+    answer: "Hiring an SDR comes with significant overhead costs, training time, and no guarantee of results. Our proven system delivers qualified meetings faster and more cost-effectively than traditional SDR hiring."
+  }, {
+    question: "How much more cost-effective is this, really?",
+    answer: "Our clients typically save 60-80% compared to hiring full-time SDRs or working with traditional agencies, while getting better results. We only succeed when you succeed."
+  }, {
+    question: "How does payment work?",
+    answer: "We work on a performance-based model. You only pay when we deliver qualified meetings. This aligns our incentives with your success and removes the risk from your side."
+  }, {
+    question: "How quickly do we see results?",
+    answer: "Most clients start seeing qualified meetings within 21-30 days of system implementation. We focus on fast execution and rapid iteration to get you results quickly."
+  }, {
+    question: "What's your refund policy?",
+    answer: "We offer a results guarantee. If we don't deliver the agreed-upon number of qualified meetings within the specified timeframe, we'll continue working until we do or provide a full refund."
+  }];
+  return <>
       <Helmet>
         <title>#1 Growth Partner for B2B Leaders - KlientsGrowth</title>
         <meta name="description" content="KlientsGrowth helps B2B leaders scale faster with a proven outbound growth system — built to deliver consistent meetings, automate prospecting, and drive predictable revenue." />
@@ -132,7 +103,7 @@ const Index = () => {
                 for B2B leaders
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-                We've helped our clients unlock over <span className="text-purple-400 font-semibold">$7M+</span> in potential deals, 
+                We've helped our clients unlock over <span className="text-purple-400 font-semibold">₹ 7M+</span> in potential deals, 
                 freeing them from the hassle of referrals, expensive SDRs, amateur agencies, and worries about the declining economy.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -158,7 +129,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-gradient">
                 <CardContent className="p-8">
-                  <div className="text-4xl font-bold text-green-400 mb-2">+$3M</div>
+                  <div className="text-4xl font-bold text-green-400 mb-2">+₹3M</div>
                   <div className="text-gray-300">Revenue generated</div>
                 </CardContent>
               </Card>
@@ -170,7 +141,7 @@ const Index = () => {
               </Card>
               <Card className="bg-gray-800 border-gray-700 text-center transition-colors hover:border-gradient">
                 <CardContent className="p-8">
-                  <div className="text-4xl font-bold text-purple-400 mb-2">+$7M</div>
+                  <div className="text-4xl font-bold text-purple-400 mb-2">+₹ 7M</div>
                   <div className="text-gray-300">Sales Pipeline</div>
                 </CardContent>
               </Card>
@@ -251,8 +222,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                {comparisonData.map((row, index) => (
-                  <div key={index} className="grid grid-cols-5 gap-4 py-4 border-t border-gray-700">
+                {comparisonData.map((row, index) => <div key={index} className="grid grid-cols-5 gap-4 py-4 border-t border-gray-700">
                     <div className="font-medium text-gray-300">{row.metric}</div>
                     <div className="text-center bg-gray-800 rounded-lg p-3">
                       <span className="text-green-400 font-semibold">{row.klientsgrowth}</span>
@@ -266,8 +236,7 @@ const Index = () => {
                     <div className="text-center bg-gray-800 rounded-lg p-3">
                       <span className="text-gray-300">{row.diy}</span>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
 
                 <div className="grid grid-cols-5 gap-4 py-4 border-t border-gray-700">
                   <div className="font-medium text-gray-300">Guarantees</div>
@@ -322,12 +291,31 @@ const Index = () => {
 
               {/* Other Options */}
               <div className="space-y-4">
-                {[
-                  { name: "Hiring an SDR", data: { time: "3 Months", failure: "Medium", price: "+$8,000/month", guarantee: false } },
-                  { name: "Marketing Agency", data: { time: "2-4 Weeks", failure: "High", price: "+$5K+ Media Buying Budget", guarantee: "Rarely" } },
-                  { name: "Do It Yourself", data: { time: "3-6 Months", failure: "Very High", price: "$3K For Software, Tools + Time Wasted", guarantee: false } }
-                ].map((option, index) => (
-                  <Card key={index} className="bg-gray-800 border-gray-700 hover:border-gradient">
+                {[{
+                name: "Hiring an SDR",
+                data: {
+                  time: "3 Months",
+                  failure: "Medium",
+                  price: "+$8,000/month",
+                  guarantee: false
+                }
+              }, {
+                name: "Marketing Agency",
+                data: {
+                  time: "2-4 Weeks",
+                  failure: "High",
+                  price: "+$5K+ Media Buying Budget",
+                  guarantee: "Rarely"
+                }
+              }, {
+                name: "Do It Yourself",
+                data: {
+                  time: "3-6 Months",
+                  failure: "Very High",
+                  price: "$3K For Software, Tools + Time Wasted",
+                  guarantee: false
+                }
+              }].map((option, index) => <Card key={index} className="bg-gray-800 border-gray-700 hover:border-gradient">
                     <CardContent className="p-6">
                       <h3 className="text-lg font-semibold mb-4 text-center">{option.name}</h3>
                       <div className="space-y-3">
@@ -345,16 +333,11 @@ const Index = () => {
                         </div>
                         <div className="flex justify-between items-center py-2">
                           <span className="text-gray-400 text-sm">Guarantees:</span>
-                          {option.data.guarantee === false ? (
-                            <X className="h-4 w-4 text-red-400" />
-                          ) : (
-                            <span className="text-gray-400 text-sm">{option.data.guarantee}</span>
-                          )}
+                          {option.data.guarantee === false ? <X className="h-4 w-4 text-red-400" /> : <span className="text-gray-400 text-sm">{option.data.guarantee}</span>}
                         </div>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </div>
           </div>
@@ -373,15 +356,13 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {processes.map((process, index) => (
-                <Card key={index} className="bg-gray-800 border-gray-700 hover:border-gradient transition-colors">
+              {processes.map((process, index) => <Card key={index} className="bg-gray-800 border-gray-700 hover:border-gradient transition-colors">
                   <CardContent className="p-8 text-center">
                     <div className="text-5xl font-bold gradient-text mb-4">{process.step}</div>
                     <h3 className="text-xl font-semibold mb-3">{process.title}</h3>
                     <p className="text-gray-400">{process.description}</p>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -399,15 +380,13 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {niches.map((niche, index) => (
-                <Card key={index} className="bg-gray-800 border-gray-700 text-center hover:border-gradient transition-colors">
+              {niches.map((niche, index) => <Card key={index} className="bg-gray-800 border-gray-700 text-center hover:border-gradient transition-colors">
                   <CardContent className="p-6">
                     <div className="flex justify-center mb-4">{niche.icon}</div>
                     <h3 className="text-lg font-semibold mb-3">{niche.title}</h3>
                     <p className="text-gray-400 text-sm">{niche.description}</p>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -422,20 +401,14 @@ const Index = () => {
             </div>
             
             <Accordion type="single" collapsible className="space-y-4">
-              {faqData.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="bg-gray-800 border-gray-700 rounded-lg px-6 hover:border-gradient"
-                >
+              {faqData.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gray-800 border-gray-700 rounded-lg px-6 hover:border-gradient">
                   <AccordionTrigger className="text-left text-lg font-medium hover:text-purple-400">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-300 pb-4">
                     {faq.answer}
                   </AccordionContent>
-                </AccordionItem>
-              ))}
+                </AccordionItem>)}
             </Accordion>
           </div>
         </section>
@@ -450,8 +423,7 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="bg-gray-800 border-l-4 border-l-purple-500 border-gray-700 hover:border-gradient">
+              {testimonials.map((testimonial, index) => <Card key={index} className="bg-gray-800 border-l-4 border-l-purple-500 border-gray-700 hover:border-gradient">
                   <CardContent className="p-8">
                     <p className="text-lg text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
                     <div className="flex justify-between items-end">
@@ -464,8 +436,7 @@ const Index = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -498,8 +469,6 @@ const Index = () => {
           </Button>
         </div>
       </div>
-    </>
-  );
+    </>;
 };
-
 export default Index;
